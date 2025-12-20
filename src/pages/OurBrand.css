@@ -1,0 +1,174 @@
+:root{
+  --accent: #f7a900;
+}
+
+/* Section wrapper */
+.op-section {
+  width: 100%;
+  padding: 20px 20px;
+  box-sizing: border-box;
+  background: #fff;
+  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  margin-bottom: 50px;
+}
+
+.op-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* layout: left meta column + right marquee */
+.op-row {
+ 
+  align-items: center; /* centers left content vertically against marquee */
+  gap: 32px;
+  width: 100%;
+}
+
+/* left column for tagline + title */
+.op-meta {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical center relative to marquee */
+  align-items: center; /* left align text */
+  padding-top: 40px;       /* adjust spacing from top if needed */
+  box-sizing: border-box;
+}
+
+/* small tagline above title */
+.op-tagline {
+  margin: 0 0 8px 0;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+/* Keep title left aligned inside meta column */
+.op-title {
+  margin: 0;
+  white-space: normal; /* allow wrapping */
+  font-weight: 800;
+  font-size: 38px;    /* slightly smaller for better fit */
+  color: #112a49;
+  line-height: 1.05;
+}
+
+/* Make marquee take remaining space on the right */
+.op-marquee {
+  flex: 1;
+  overflow: hidden;
+  padding: 12px 0;
+  border-radius: 6px;
+  margin-top: 30px;
+}
+
+/* On small screens stack meta above marquee */
+@media (max-width: 700px) {
+  .op-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .op-meta {
+    width: 100%;
+    padding-top: 0;
+    align-items: flex-start;
+  }
+
+  .op-title {
+    font-size: 24px;
+  }
+
+  .op-marquee {
+    width: 100%;
+  }
+}
+
+/* If you want the left column to be visually separated on large screens, uncomment below */
+/*
+.op-meta {
+  padding-right: 18px;
+  border-right: 1px solid rgba(0,0,0,0.04);
+}
+*/
+
+
+/* The moving track — wider than viewport; we place duplicated logos inside */
+.op-track {
+  display: flex;
+  align-items: center;
+  gap: 18px; /* spacing between logos */
+  will-change: transform;
+  animation: op-scroll-left var(--marquee-duration, 40s) linear infinite;
+}
+
+/* Each logo wrapper */
+.op-logoWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  height: 90px;
+  text-decoration: none;
+  filter: grayscale(0.0) contrast(0.95);
+  transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+  pointer-events: auto;
+  background: transparent;
+  border-radius: 6px;
+}
+
+/* Hover on a single logo slightly lifts it and restores color */
+.op-logoWrap:hover,
+.op-logoWrap:focus {
+  transform: translateY(-6px) scale(1.02);
+  filter: grayscale(0) saturate(1.05);
+  opacity: 1;
+  outline: none;
+}
+
+/* image style */
+.op-logo {
+  object-fit: contain;
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* Pause on hover: when the user hovers the whole marquee, animation pauses */
+.op-marquee:hover .op-track,
+.op-marquee:focus-within .op-track {
+  animation-play-state: paused;
+}
+
+/* make the animation smoother when reduced-motion is not requested */
+@keyframes op-scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* duplicated track so -50% loops seamlessly */
+}
+
+/* Accessibility: respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .op-track {
+    animation: none;
+  }
+
+  .op-logoWrap:hover,
+  .op-logoWrap:focus {
+    transform: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .op-track { gap: 32px; }
+  .op-logoWrap { min-width: 140px; height: 70px; }
+}
+@media (max-width: 700px) {
+  .op-row { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .op-title { font-size: 28px; margin-bottom: 6px; }
+  .op-track { gap: 22px; }
+  .op-logoWrap { min-width: 120px; height: 60px; }
+}
+@media (max-width: 420px) {
+  .op-logoWrap { min-width: 100px; height: 50px; }
+}

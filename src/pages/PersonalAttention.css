@@ -1,0 +1,145 @@
+/* PersonalAttention.css - step-wise (staircase) card layout */
+
+.pa-section {
+  background: #f6f6f6;
+  padding: 64px 20px;
+  font-family: "Poppins", "Helvetica Neue", Arial, sans-serif;
+  color: #122;
+}
+
+.pa-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 36px;
+}
+
+/* Intro Row */
+.pa-intro {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  align-items: flex-start;
+}
+.pa-title {
+  font-size: 44px;
+  line-height: 1.3;
+  margin: 0;
+  font-weight: 800;
+  color: #112a49;
+  flex: 1 1 10%;
+}
+.pa-title .accent { color: #fbe900; }
+
+.pa-lead {
+  flex: 1 1 36%;
+  color: #5b6b68;
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 6px 0 0;
+  max-width: 510px;
+}
+
+/* Cards Container */
+.pa-cards {
+  display: flex;
+  gap: 28px;
+  align-items: flex-end;
+  padding-left: 6px;
+  overflow: visible;
+  position: relative;
+}
+
+/* Cards */
+.pa-card {
+  width: 280px;
+  min-width: 220px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(10, 20, 24, 0.07);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: margin-top 200ms ease, box-shadow 240ms ease, transform 240ms ease;
+}
+
+/* Hover Lift */
+.pa-card:hover {
+  transform: translateY(-14px);   /* lift only on hover */
+  box-shadow: 0 22px 48px rgba(10,20,24,0.14);
+  z-index: 10 !important;
+}
+
+/* Card Media */
+.pa-card-media {
+  height: 200px;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.pa-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Card Body */
+.pa-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pa-card-top { display: flex; gap: 10px; }
+.pa-card-num { color: #fbe900; font-weight: 800; font-size: 14px; }
+.pa-card-title { font-size: 18px; font-weight: 800; margin: 0; }
+.pa-card-text { margin: 0; color: #566463; font-size: 14px; line-height: 1.6; }
+
+/* Huge Number */
+.pa-card-huge {
+  position: absolute;
+  right: 5px;
+  bottom: -10px;
+  font-size: 54px;
+  color: rgba(10,18,20,0.06);
+  font-weight: 900;
+  pointer-events: none;
+}
+
+/* --- STAIRCASE USING MARGIN-TOP ONLY --- */
+.pa-card:nth-child(1) { margin-top: 0px; z-index: 1; }
+.pa-card:nth-child(2) { margin-top: 20px; z-index: 2; }
+.pa-card:nth-child(3) { margin-top: 40px; z-index: 3; }
+.pa-card:nth-child(4) { margin-top: 60px; z-index: 4; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+  .pa-intro { flex-direction: column; gap: 18px; }
+  .pa-title { font-size: 34px; }
+  .pa-lead { max-width: 100%; }
+
+  .pa-cards { flex-wrap: wrap; gap: 18px; }
+
+  /* Reset stagger on tablet/mobile */
+  .pa-card {
+    width: calc(50% - 12px);
+    margin-top: 0 !important;
+    transform: none !important;
+    z-index: auto;
+  }
+  .pa-card:hover {
+    transform: translateY(-8px) !important;
+  }
+  .pa-card-huge { font-size: 60px; }
+}
+
+@media (max-width: 480px) {
+  .pa-title { font-size: 22px; }
+  .pa-card { width: 100%; }
+  .pa-card-media { height: 180px; }
+  .pa-card-huge { font-size: 44px; }
+}

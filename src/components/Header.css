@@ -1,0 +1,485 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap");
+
+/* ===== Header Base ===== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0px 5%;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.header.scrolled {
+  background: rgb(34, 31, 59);
+  padding: 15px 5%;
+}
+
+/* Inner wrapper */
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo img {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
+  
+}
+
+/* Navigation */
+.nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 35px;
+  align-items: center;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  position: relative;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav ul li a:hover {
+  color: #FBE900;
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  color: #FBE900;
+}
+
+/* Right Side: Icons + Button */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.icon {
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.icon:hover {
+  color: #FBE900;
+}
+
+.menu-icon {
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.menu-icon:hover {
+  color: #FBE900;
+}
+
+.book-btn {
+  background: #FBE900;
+  color: #112A49;
+  border: none;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.book-btn:hover {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+/* ===== Sidebar (Mobile Menu) ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  color: #000;
+  z-index: 2000;
+  padding: 30px 25px;
+  transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  overflow-y: auto;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar.open {
+  right: 0;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+}
+
+.sidebar-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #112A49;
+}
+
+.close-icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: #112A49;
+  transition: color 0.3s;
+}
+
+.close-icon:hover {
+  color: #FBE900;
+}
+
+.sidebar-img {
+  width: 100%;
+  max-width: 180px;
+  border-radius: 8px;
+  margin: 15px 0;
+  object-fit: cover;
+}
+
+.sidebar p {
+  color: #555;
+  font-size: 14.5px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.contact-info h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #112A49;
+  margin: 15px 0 10px;
+}
+
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #333;
+  font-size: 14px;
+  margin: 6px 0;
+}
+
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #FBE900;
+  color: #112A49;
+  padding: 12px 22px;
+  margin-top: 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.about-btn:hover {
+  background-color: #112A49;
+  color: #fff;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  backdrop-filter: blur(3px);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 992px) {
+  .nav,
+  .book-btn,
+  .icon {
+    display: none;
+  }
+
+  .nav-right {
+    gap: 0;
+  }
+
+  .menu-icon {
+    display: block !important;
+  }
+}
+/* ===== Popup Contact Form ===== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 3000;
+  animation: fadeIn 0.4s ease;
+}
+
+.popup-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background: #fff;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 480px;
+  padding: 40px 35px;
+  z-index: 4000;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  animation: slideUp 0.4s ease;
+}
+
+.popup-close {
+  position: absolute;
+  top: 15px;
+  right: 18px;
+  font-size: 22px;
+  color: #112A49;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.popup-close:hover {
+  color: #FBE900;
+}
+
+.popup-form h2 {
+  color: #112A49;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.popup-form p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.popup-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.popup-form input,
+.popup-form textarea {
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.popup-form input:focus,
+.popup-form textarea:focus {
+  border-color: #FBE900;
+  box-shadow: 0 0 0 2px rgba(251, 233, 0, 0.2);
+}
+
+.popup-btn {
+  background: #FBE900;
+  color: #112A49;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.popup-btn:hover {
+  background: #112A49;
+  color: #fff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* ===== Fixed Vertical Dropdown Menu ===== */
+.services-dropdown {
+  position: relative;
+}
+
+.services-dropdown > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  
+}
+
+.services-dropdown:hover > a {
+  color: #FBE900;
+}
+
+.dropdown-icon {
+  font-size: 11px;
+  color: #FBE900;
+  transition: transform 0.3s ease;
+}
+
+.services-dropdown:hover .dropdown-icon {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Box */
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  left: 0;
+  display: flex;
+  flex-direction: column; /* ✅ Stack vertically */
+  align-items: flex-start; /* Align to left */
+  justify-content: flex-start;
+  background: rgba(17, 42, 73, 0.97) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  padding: 10px 0;
+  list-style: none;
+  margin: 0;
+  width: 250px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+/* Show when hovered */
+.services-dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Each Item — neatly spaced and clean */
+.dropdown-menu li {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dropdown-menu li:last-child {
+  border-bottom: none;
+}
+
+.dropdown-menu li a {
+  display: block;
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Hover Style — elegant gold highlight */
+.dropdown-menu li a:hover {
+  background: rgba(251, 233, 0, 0.2);
+  color: #FBE900;
+  padding-left: 28px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 992px) {
+  .dropdown-menu {
+    position: static;
+    width: 100%;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 15px;
+  }
+
+  .dropdown-menu li a {
+    color: #fff;
+    padding: 10px 0;
+  }
+
+  .dropdown-menu li a:hover {
+    background: none;
+    color: #FBE900;
+    padding-left: 0;
+  }
+}
+
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    width: 100%;
+    right: -100%;
+  }
+
+  .sidebar.open {
+    right: 0;
+  }
+}
