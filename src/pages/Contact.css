@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.contact-page {
+  font-family: "Poppins", sans-serif;
+  color: #1b1b1b;
+}
+
+/* 🌄 Banner Section */
+.contact-banner {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-overlay {
+  background-color: rgba(17, 17, 17, 0.6);
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.banner-overlay h1 {
+  color: #fff;
+  font-size: 64px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.banner-overlay h1 span {
+  color: #FBE900;
+}
+
+/* 📨 Contact Section */
+.contact-section {
+  background-color: #fff;
+  padding: 100px 40px;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+/* Left Section */
+.contact-left {
+  flex: 1 1 60%;
+}
+
+.contact-subtitle {
+  color: #FBE900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.contact-title {
+  font-size: 48px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.contact-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 70px;
+  height: 3px;
+  background-color: #FBE900;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-row input,
+.contact-form textarea {
+  flex: 1;
+  background-color: #f5f1ee;
+  border: none;
+  padding: 15px;
+  font-size: 15px;
+  color: #333;
+  outline: none;
+  resize: none;
+  border-radius: 3px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1px solid #FBE900;
+  background-color: #f8f5f3;
+}
+
+.send-btn {
+  background-color: #FBE900;
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  padding: 15px 40px;
+  width: fit-content;
+  cursor: pointer;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+.send-btn:hover {
+  background-color: #4a3831;
+}
+
+/* Right Section */
+.contact-right {
+  flex: 1 1 35%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.info-box {
+  background: #fff;
+  border-top: 3px solid #FBE900;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 6px;
+}
+
+.info-item {
+  margin-bottom: 25px;
+}
+
+.info-label {
+  color: #777;
+  font-size: 15px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.info-text {
+  color: #1b1b1b;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.divider {
+  height: 1px;
+  background-color: #e5e5e5;
+  margin: 25px 0;
+}
+
+/* Social Icons */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icons a {
+  width: 40px;
+  height: 40px;
+  background-color: #f5f1ee;
+  color: #3a2a25;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  transition: 0.3s ease;
+}
+
+.social-icons a:hover {
+  background-color: #e7d8cf;
+  transform: scale(1.1);
+}
+/* 📍 Google Map */
+.map-section {
+  width: 100%;
+  margin-top: 60px;
+  border-top: 2px solid #f0f0f0;
+  margin-bottom: 40px;
+}
+
+.map-section iframe {
+  width: 100%;
+  height: 450px;
+  border: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-overlay h1 {
+    font-size: 42px;
+  }
+
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-title {
+    font-size: 36px;
+  }
+
+  .info-box {
+    max-width: 100%;
+  }
+}

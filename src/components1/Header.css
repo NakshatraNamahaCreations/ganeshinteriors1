@@ -1,0 +1,187 @@
+/* Container */
+.est-header {
+  background: #ffffff;
+
+  position: sticky;
+  top: 80px;
+  z-index: 40;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
+  margin-top: 100px;
+
+}
+
+.est-header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* left */
+.est-left {
+  flex: 0 0 auto;
+}
+.est-logo {
+  height: 74px;
+  object-fit: contain;
+}
+
+/* center - progress */
+.est-center {
+  flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.est-progress {
+  width: 720px;
+  max-width: 100%;
+}
+
+/* the visual horizontal line and fill */
+.est-progress-top {
+  position: relative;
+  padding: 12px 18px 0 18px;
+}
+
+.est-steps-line {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 60%;
+  height: 2px;
+  background: #f2f2f2;
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.est-steps-fill {
+  height: 100%;
+  background: linear-gradient(90deg,#112a49,#112a49);
+  border-radius: 2px;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* circles that sit above the line */
+.est-step-items {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0 6px;
+  position: relative;
+  z-index: 3;
+}
+
+.est-step-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background: #fef6dc;
+  color: #8f6e76;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  transition: all .22s ease;
+  font-family: 'poppins';
+  font-size: 12px;
+  border-radius: 50%;
+}
+
+.est-step-item.est-step-active {
+  background: #FBE900;
+  color: #112a49;
+  transform: translateY(-2px);
+}
+
+/* labels beneath */
+.est-progress-labels {
+  display: flex;
+  gap: 0;
+  margin-top: 12px;
+  padding: 0 12px;
+  justify-content: space-between;
+}
+
+.est-label {
+  text-align: center;
+  font-size: 12px;
+  color: #112a49;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  padding: 6px 4px;
+  opacity: 0.95;
+  font-family: 'poppins';
+}
+
+.est-label-active {
+  color: #112a49;
+}
+
+/* right area */
+.est-right {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.est-quote-btn {
+  background: #112a49;
+  border: none;
+  color: white;
+  padding: 10px 18px;
+  border-radius: 26px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(239,107,107,0.12);
+  font-family: 'poppins';
+  font-size: 14px;
+}
+
+.est-quote-btn:hover { transform: translateY(-2px); }
+
+/* page count */
+.est-page-count {
+  color: #6b6b6b;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.est-step-circle img.step-icon {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+.est-step-item.est-step-active .est-step-circle {
+  border-color: #ef6b6b;
+}
+
+.est-step-item.est-step-active img.step-icon {
+  filter: none;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* responsive */
+@media (max-width: 920px) {
+  .est-progress { width: 520px; }
+}
+@media (max-width: 720px) {
+  .est-progress { width: 100%; }
+  .est-progress-top { padding: 12px 6px 0 6px; }
+  .est-step-item { width: 36px; height: 36px; font-size: 14px; }
+  .est-label { font-size: 11px; }
+  .est-header-inner { padding: 12px; }
+}
+@media (max-width: 520px) {
+  .est-center { display: none; } /* hide center on very small screens */
+}
+

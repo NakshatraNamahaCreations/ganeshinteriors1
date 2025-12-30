@@ -1,0 +1,232 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.services-page {
+  font-family: "Poppins", sans-serif;
+  background: #faf9f7;
+  text-align: center;
+  color: #1b1b1b;
+}
+
+/* ===== Banner Section ===== */
+.services-banner {
+  height: 70vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  overflow: hidden;
+}
+
+.services-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  animation: fadeInUp 1s ease-out;
+}
+
+.banner-content h1 {
+  font-size: 64px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.banner-content p {
+  font-size: 18px;
+  color: #f1f1f1;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Services Header Section ===== */
+.services-header {
+  padding: 100px 40px 60px;
+}
+
+.services-header h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #1b1b1b;
+  margin-bottom: 10px;
+}
+
+.services-header h1 span {
+  color: #FBE900;
+}
+
+.services-header p {
+  max-width: 700px;
+  margin: 0 auto 60px;
+  color: #666;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* ===== Grid Layout ===== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px;
+  justify-items: center;
+  padding: 0 40px 100px;
+  margin-top: 60px;
+}
+
+/* ===== Service Card ===== */
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 50px 30px;
+  position: relative;
+  overflow: hidden;
+  text-align: left;
+  transition: all 0.5s ease;
+  cursor: pointer;
+  z-index: 1;
+  min-height: 320px;
+}
+
+/* Background Image Effect on Hover */
+.service-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg-img);
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: all 0.6s ease;
+  z-index: 0;
+}
+
+.service-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  transition: all 0.6s ease;
+  z-index: 0;
+}
+
+/* Card Content */
+.card-content {
+  position: relative;
+  z-index: 2;
+  color: #1b1b1b;
+}
+
+.icon-box {
+  font-size: 38px;
+  color: #FBE900;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.card-content h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  transition: color 0.3s ease;
+}
+
+.card-content p {
+  color: #666;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
+}
+
+.details-link {
+  font-weight: 500;
+  color: #b57b5c;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.details-link:hover {
+  text-decoration: underline;
+}
+
+/* Number in background */
+.service-num {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 50px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.05);
+  z-index: 1;
+  transition: color 0.5s ease;
+}
+
+/* Hover Effects */
+.service-card:hover::before {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.service-card:hover::after {
+  opacity: 1;
+}
+
+.service-card:hover .card-content {
+  color: #fff;
+}
+
+.service-card:hover .icon-box,
+.service-card:hover .card-content h3,
+.service-card:hover .card-content p,
+.service-card:hover .details-link {
+  color: #fff;
+}
+
+.service-card:hover .service-num {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .banner-content h1 {
+    font-size: 42px;
+  }
+
+  .services-header h1 {
+    font-size: 36px;
+  }
+
+  .service-card {
+    padding: 40px 25px;
+  }
+
+  .icon-box {
+    font-size: 32px;
+  }
+}
