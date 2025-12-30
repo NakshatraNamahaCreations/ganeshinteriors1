@@ -4,7 +4,10 @@ import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import about1 from "../assets/about1.png";
 import bgPattern from "../assets/bannerinteriors.jpg";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+>>>>>>> 0247319fa34256abdc946b7fa26eea2e6c7a4f48
 
 const AboutSection = () => {
   const gold = "#FBE900";
@@ -133,8 +136,13 @@ Ganesh Interior Designs, a company that specializes in Interior Design & Executi
           </p>
 
           {/* Read More Button */}
+<<<<<<< HEAD
           <Link
             to="/about-us"
+=======
+          <a
+            href="#"
+>>>>>>> 0247319fa34256abdc946b7fa26eea2e6c7a4f48
             style={{
               color: "#112a49ff",
               fontSize: "17px",
@@ -179,7 +187,11 @@ Ganesh Interior Designs, a company that specializes in Interior Design & Executi
                 }}
               />
             </span>
+<<<<<<< HEAD
           </Link>
+=======
+          </a>
+>>>>>>> 0247319fa34256abdc946b7fa26eea2e6c7a4f48
         </div>
       </div>
 
